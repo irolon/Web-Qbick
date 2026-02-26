@@ -9,10 +9,5 @@
       "source": "/(.*)",
       "destination": "/"
     }
-  ],
-  "functions": {
-    "app/**/*": {
-      "memory": 1024
-    }
-  }
+  ]
 }
