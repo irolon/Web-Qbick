@@ -1,0 +1,362 @@
+/* Intro */
+.empresa-intro {
+  padding: 100px 0;
+  background: var(--white);
+}
+
+.empresa-intro__inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.empresa-intro__text {
+  font-size: 0.97rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.empresa-intro__metrics {
+  display: flex;
+  gap: 32px;
+  padding: 28px;
+  background: var(--gray-50);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.empresa-intro__metric {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.empresa-intro__metric-val {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1;
+}
+
+.empresa-intro__metric-lab {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.empresa-intro__images {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.empresa-intro__img-main {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+.empresa-intro__img-main img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.empresa-intro__img-side {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.empresa-intro__img-side img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Timeline */
+.empresa-timeline {
+  padding: 100px 0;
+  background: var(--gray-100);
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 1fr 48px 1fr;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 0;
+}
+
+.timeline-item__year {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--navy);
+  text-align: right;
+  line-height: 1;
+  padding-right: 8px;
+}
+
+.timeline-item--right .timeline-item__year {
+  order: 3;
+  text-align: left;
+  padding-right: 0;
+  padding-left: 8px;
+}
+
+.timeline-item__connector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  order: 2;
+}
+
+.timeline-item__dot {
+  width: 18px;
+  height: 18px;
+  background: var(--amber);
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px var(--amber);
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.timeline-item__card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.timeline-item__card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.timeline-item--right .timeline-item__card {
+  order: 1;
+}
+
+.timeline-item__card h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.timeline-item__card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Valores */
+.empresa-valores {
+  padding: 100px 0;
+  background: var(--white);
+}
+
+.empresa-valores__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.valor-card {
+  background: var(--gray-50);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  text-align: center;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+
+.valor-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--blue-pale2);
+}
+
+.valor-card__icon {
+  font-size: 2.2rem;
+  display: block;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.valor-card__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.valor-card__desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* Misión y visión */
+.empresa-mv {
+  padding: 80px 0;
+  background: var(--gray-100);
+}
+
+.empresa-mv__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.empresa-mv__card {
+  border-radius: var(--radius-lg);
+  padding: 40px 36px;
+  position: relative;
+  overflow: hidden;
+}
+
+.empresa-mv__card--mision {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.empresa-mv__card--vision {
+  background: var(--navy-mid);
+  color: var(--white);
+}
+
+.empresa-mv__icon {
+  font-size: 2.4rem;
+  display: block;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.empresa-mv__card h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 14px;
+  color: var(--amber);
+}
+
+.empresa-mv__card p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.82);
+  margin: 0;
+}
+
+/* CTA */
+.cta-strip {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  padding: 70px 0;
+}
+
+.cta-strip__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.cta-strip__title {
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+
+.cta-strip__sub {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.7);
+}
+
+.cta-strip__actions {
+  display: flex;
+  gap: 14px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .empresa-valores__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .timeline::before {
+    left: 24px;
+  }
+  .timeline-item {
+    grid-template-columns: 48px 1fr;
+  }
+  .timeline-item__year {
+    display: none;
+  }
+  .timeline-item--right .timeline-item__year {
+    display: none;
+  }
+  .timeline-item__connector {
+    order: 1;
+  }
+  .timeline-item__card {
+    order: 2;
+  }
+  .timeline-item--right .timeline-item__card {
+    order: 2;
+  }
+}
+
+@media (max-width: 900px) {
+  .empresa-intro__inner {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  .empresa-mv__grid {
+    grid-template-columns: 1fr;
+  }
+  .cta-strip__inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .cta-strip__actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .empresa-valores__grid {
+    grid-template-columns: 1fr;
+  }
+}
