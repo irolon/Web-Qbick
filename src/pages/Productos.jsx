@@ -3,7 +3,61 @@ import imgEpsBlanco from '../assets/Img-telgopor-blanco.png'
 import imgBolsaBlanco from '../assets/Img-Bolsa-telgopor-blanco.png'
 import imgBolsaNegro from '../assets/Img-Bolsa-telgopor-negro.png'
 import imgLigante from '../assets/Img-Ligante.png'
+import SEOHead from '../components/SEOHead'
 import './Productos.css'
+
+const productosSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Productos EPS y Telgopor - QBICK',
+  url: 'https://www.qbick.com.ar/productos',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      item: {
+        '@type': 'Product',
+        name: 'EPS (Telgopor)',
+        description: 'Poliestireno Expandido (EPS), conocido comercialmente como Telgopor. Alta aislación térmica, bajo peso, estabilidad dimensional. Ideal para alivianar losas y contrapisos en construcción.',
+        brand: { '@type': 'Brand', name: 'QBICK' },
+        offers: { '@type': 'Offer', availability: 'https://schema.org/InStock', priceCurrency: 'ARS', seller: { '@type': 'Organization', name: 'QBICK' } },
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      item: {
+        '@type': 'Product',
+        name: 'Telgopor Molido Blanco',
+        description: 'Poliestireno expandido triturado para mezclas cementicias. Reduce el peso del hormigón un 50-70%. Ideal para contrapisos alivianados, carpetas térmicas y rellenos de terrazas.',
+        brand: { '@type': 'Brand', name: 'QBICK' },
+        offers: { '@type': 'Offer', availability: 'https://schema.org/InStock', priceCurrency: 'ARS', seller: { '@type': 'Organization', name: 'QBICK' } },
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      item: {
+        '@type': 'Product',
+        name: 'Telgopor Molido Gris/Negro',
+        description: 'EPS molido mejorado con aditivos grafitados. Ofrece un 15% más de aislación térmica respecto al EPS blanco. Ideal para morteros de alta eficiencia energética.',
+        brand: { '@type': 'Brand', name: 'QBICK' },
+        offers: { '@type': 'Offer', availability: 'https://schema.org/InStock', priceCurrency: 'ARS', seller: { '@type': 'Organization', name: 'QBICK' } },
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 4,
+      item: {
+        '@type': 'Product',
+        name: 'Ligante para Telgopor',
+        description: 'Producto especializado para mejorar la adherencia y cohesión entre EPS molido y cemento. Evita la segregación del telgopor. Disponible en 1 litro y 5 litros.',
+        brand: { '@type': 'Brand', name: 'QBICK' },
+        offers: { '@type': 'Offer', availability: 'https://schema.org/InStock', priceCurrency: 'ARS', seller: { '@type': 'Organization', name: 'QBICK' } },
+      },
+    },
+  ],
+}
 
 const productos = [
   {
@@ -84,6 +138,13 @@ const productos = [
 export default function Productos() {
   return (
     <div className="productos-page">
+      <SEOHead
+        title="Productos EPS y Telgopor Molido | QBICK - Venta en Buenos Aires"
+        description="EPS (Telgopor), Telgopor Molido Blanco, Telgopor Molido Gris/Negro y Ligante para Telgopor. Materiales para contrapisos alivianados, carpetas térmicas y rellenos en Argentina. Asesoramiento técnico."
+        keywords="telgopor molido, EPS molido, ligante para telgopor, poliestireno expandido molido, venta telgopor, telgopor gris negro, EPS grafitado, contrapisos livianos, Buenos Aires Argentina"
+        path="/productos"
+        schema={productosSchema}
+      />
       {/* Hero */}
       <section className="page-hero">
         <div className="container">

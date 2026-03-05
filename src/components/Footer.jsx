@@ -55,16 +55,12 @@ export default function Footer() {
             <h4 className="footer__heading">Contacto</h4>
             <ul className="footer__contact-list">
               <li>
-                <span className="footer__contact-icon">📍</span>
-                <span>Buenos Aires, Argentina</span>
-              </li>
-              <li>
                 <span className="footer__contact-icon">🕐</span>
                 <span>Lun–Vie: 8:00 – 18:00 hs</span>
               </li>
               <li>
                 <span className="footer__contact-icon">✉️</span>
-                <span>Consultar por email</span>
+                <span>info@qbick.com.ar</span>
               </li>
             </ul>
             <Link to="/contacto" className="footer__cta-btn">
@@ -79,7 +75,7 @@ export default function Footer() {
       <div className="footer__bottom">
         <div className="container footer__bottom-inner">
           <p className="footer__copy">© {year} Qbick. Todos los derechos reservados.</p>
-          <p className="footer__legal">EPS · Soluciones en construcción</p>
+          <p className="footer__legal">Qbick soluciones en EPS</p>
         </div>
       </div>
     </footer>

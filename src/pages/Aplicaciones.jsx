@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
-import imgEpsBlanco from '../assets/Img-telgopor-blanco.png'
+import imgBlancoPiso from '../assets/Img-Telgopor-Blanco-piso.png'
 import imgNegroblanco from '../assets/Img-telgopor-negro-blanco.png'
+import SEOHead from '../components/SEOHead'
 import './Aplicaciones.css'
 
 const aplicaciones = [
@@ -58,6 +59,12 @@ const ventajas = [
 export default function Aplicaciones() {
   return (
     <div className="aplicaciones-page">
+      <SEOHead
+        title="Aplicaciones del EPS en Construcción | Contrapisos, Aislación, Rellenos | QBICK"
+        description="Descubrí cómo usar EPS y Telgopor Molido en contrapisos alivianados, carpetas térmicas, rellenos estructurales livianos, hormigón liviano no estructural, pendientes en terrazas y aislación de techos."
+        keywords="contrapisos alivianados, carpetas térmicas, hormigón liviano, rellenos estructurales, aislación térmica EPS, pendientes terraza telgopor, losas livianas, EPS construcción Argentina"
+        path="/aplicaciones"
+      />
       {/* Hero */}
       <section className="page-hero">
         <div className="container">
@@ -122,7 +129,7 @@ export default function Aplicaciones() {
         <div className="container aplicaciones-split__inner">
           <div className="aplicaciones-split__imgs">
             <div className="aplicaciones-split__img-main">
-              <img src={imgEpsBlanco} alt="Bloques EPS para construcción" />
+              <img src={imgBlancoPiso} alt="Telgopor blanco para construcción" />
             </div>
             <div className="aplicaciones-split__img-secondary">
               <img src={imgNegroblanco} alt="EPS mejorado gris/negro" />

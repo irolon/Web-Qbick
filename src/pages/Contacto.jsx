@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import emailjs from '@emailjs/browser'
+import SEOHead from '../components/SEOHead'
 import './Contacto.css'
 
 const productos = [
@@ -8,6 +10,10 @@ const productos = [
   'Ligante para Telgopor',
   'Varios / Consulta general',
 ]
+
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
 export default function Contacto() {
   const [form, setForm] = useState({
@@ -19,6 +25,8 @@ export default function Contacto() {
     mensaje: '',
   })
   const [submitted, setSubmitted] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [error, setError] = useState(null)
 
   const handleChange = e => {
     const { name, value } = e.target
@@ -27,12 +35,35 @@ export default function Contacto() {
 
   const handleSubmit = e => {
     e.preventDefault()
-    // En producción, aquí iría el envío real del formulario
-    setSubmitted(true)
+    setSending(true)
+    setError(null)
+
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+      nombre: form.nombre,
+      empresa: form.empresa,
+      telefono: form.telefono,
+      email: form.email,
+      producto: form.producto,
+      mensaje: form.mensaje,
+    }, PUBLIC_KEY)
+      .then(() => {
+        setSubmitted(true)
+        setSending(false)
+      })
+      .catch(() => {
+        setError('Hubo un error al enviar el mensaje. Intentá de nuevo o contactanos por teléfono.')
+        setSending(false)
+      })
   }
 
   return (
     <div className="contacto-page">
+      <SEOHead
+        title="Contacto | Consultá sobre EPS y Telgopor Molido | QBICK"
+        description="Consultá precios y disponibilidad de EPS, Telgopor Molido Blanco, Gris/Negro y Ligante para tu obra. Asesoramiento técnico gratuito. Atención lunes a viernes 8 a 18 hs y sábados 8 a 13 hs. Buenos Aires."
+        keywords="contacto QBICK, consulta telgopor, precio EPS construcción, comprar telgopor molido, cotización EPS Argentina, venta telgopor Buenos Aires"
+        path="/contacto"
+      />
       {/* Hero */}
       <section className="page-hero">
         <div className="container">
@@ -76,7 +107,7 @@ export default function Contacto() {
                         name="nombre"
                         value={form.nombre}
                         onChange={handleChange}
-                        placeholder="Juan García"
+                        placeholder="Nombre"
                         required
                       />
                     </div>
@@ -88,7 +119,7 @@ export default function Contacto() {
                         name="empresa"
                         value={form.empresa}
                         onChange={handleChange}
-                        placeholder="Constructora XYZ"
+                        placeholder="Empresa"
                       />
                     </div>
                   </div>
@@ -102,7 +133,7 @@ export default function Contacto() {
                         name="telefono"
                         value={form.telefono}
                         onChange={handleChange}
-                        placeholder="+54 11 1234-5678"
+                        placeholder="Telefono"
                         required
                       />
                     </div>
@@ -114,7 +145,7 @@ export default function Contacto() {
                         name="email"
                         value={form.email}
                         onChange={handleChange}
-                        placeholder="juan@empresa.com.ar"
+                        placeholder="Email"
                         required
                       />
                     </div>
@@ -149,13 +180,14 @@ export default function Contacto() {
                     />
                   </div>
 
-                  <button type="submit" className="btn btn-primary contacto-submit-btn">
+                  <button type="submit" className="btn btn-primary contacto-submit-btn" disabled={sending}>
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <line x1="22" y1="2" x2="11" y2="13"/>
                       <polygon points="22 2 15 22 11 13 2 9 22 2"/>
                     </svg>
-                    Enviar consulta
+                    {sending ? 'Enviando...' : 'Enviar consulta'}
                   </button>
+                  {error && <p style={{ color: '#e53e3e', marginTop: '8px', fontSize: '0.9rem' }}>{error}</p>}
                   <p className="contacto-form__note">
                     * Campos obligatorios. Tu información es confidencial y no será compartida con terceros.
                   </p>
@@ -171,24 +203,17 @@ export default function Contacto() {
 
               <div className="contacto-info-items">
                 <div className="contacto-info-item">
-                  <div className="contacto-info-item__icon">📍</div>
-                  <div>
-                    <div className="contacto-info-item__label">Ubicación</div>
-                    <div className="contacto-info-item__val">Buenos Aires, Argentina</div>
-                  </div>
-                </div>
-                <div className="contacto-info-item">
                   <div className="contacto-info-item__icon">📞</div>
                   <div>
                     <div className="contacto-info-item__label">Teléfono</div>
-                    <div className="contacto-info-item__val">Consultá por nuestro número</div>
+                    <div className="contacto-info-item__val"> 11-4971-5629</div>
                   </div>
                 </div>
                 <div className="contacto-info-item">
                   <div className="contacto-info-item__icon">✉️</div>
                   <div>
                     <div className="contacto-info-item__label">Email</div>
-                    <div className="contacto-info-item__val">Consultá por nuestro email</div>
+                    <div className="contacto-info-item__val"> info@qbick.com.ar</div>
                   </div>
                 </div>
                 <div className="contacto-info-item">

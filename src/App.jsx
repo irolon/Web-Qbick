@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
+import { HelmetProvider } from 'react-helmet-async'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
@@ -18,21 +19,23 @@ function ScrollToTop() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <div className="page-wrapper">
-        <Navbar />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/productos" element={<Productos />} />
-            <Route path="/aplicaciones" element={<Aplicaciones />} />
-            <Route path="/empresa" element={<Empresa />} />
-            <Route path="/contacto" element={<Contacto />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <ScrollToTop />
+        <div className="page-wrapper">
+          <Navbar />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/productos" element={<Productos />} />
+              <Route path="/aplicaciones" element={<Aplicaciones />} />
+              <Route path="/empresa" element={<Empresa />} />
+              <Route path="/contacto" element={<Contacto />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </BrowserRouter>
+    </HelmetProvider>
   )
 }

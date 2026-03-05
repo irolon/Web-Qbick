@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
-import imgEpsBlanco from '../assets/Img-telgopor-blanco.png'
-import imgLigante from '../assets/Img-Ligante.png'
+import imgNegroPiso from '../assets/Img-Telgopor-Negro-Piso.png'
+import imgBlanco2 from '../assets/Img-Telgopor-Blanco-2.png'
+import SEOHead from '../components/SEOHead'
 import './Empresa.css'
 
 const valores = [
@@ -30,6 +31,12 @@ const valores = [
 export default function Empresa() {
   return (
     <div className="empresa-page">
+      <SEOHead
+        title="Quiénes Somos | QBICK - 10 Años en Soluciones EPS para Construcción"
+        description="QBICK: empresa argentina especializada en EPS (Telgopor) y materiales para construcción. Más de 10 años de trayectoria, asesoramiento técnico especializado y materiales de calidad en Buenos Aires."
+        keywords="QBICK empresa, EPS Argentina, telgopor construcción empresa, poliestireno expandido proveedor, asesoramiento técnico EPS, empresa construcción Buenos Aires"
+        path="/empresa"
+      />
       {/* Hero */}
       <section className="page-hero">
         <div className="container">
@@ -71,10 +78,10 @@ export default function Empresa() {
           </div>
           <div className="empresa-intro__images">
             <div className="empresa-intro__img-main">
-              <img src={imgEpsBlanco} alt="Bloques EPS en obra" />
+              <img src={imgNegroPiso} alt="Telgopor negro en obra" />
             </div>
             <div className="empresa-intro__img-side">
-              <img src={imgLigante} alt="Ligante para telgopor" />
+              <img src={imgBlanco2} alt="Bloques EPS telgopor blanco" />
             </div>
           </div>
         </div>

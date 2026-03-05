@@ -4,7 +4,37 @@ import imgBolsaBlanco from '../assets/Img-Bolsa-telgopor-blanco.png'
 import imgBolsaNegro from '../assets/Img-Bolsa-telgopor-negro.png'
 import imgLigante from '../assets/Img-Ligante.png'
 import imgNegroblanco from '../assets/Img-telgopor-negro-blanco.png'
+import SEOHead from '../components/SEOHead'
 import './Home.css'
+
+const homeSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      name: 'QBICK',
+      url: 'https://www.qbick.com.ar',
+      description: 'Empresa argentina especializada en EPS (Telgopor) y soluciones para construcción. Más de 10 años de experiencia en Buenos Aires, Argentina.',
+      areaServed: 'Argentina',
+      knowsAbout: ['EPS', 'Telgopor', 'Poliestireno Expandido', 'Contrapisos Alivianados', 'Construcción'],
+    },
+    {
+      '@type': 'LocalBusiness',
+      name: 'QBICK - Soluciones en EPS',
+      url: 'https://www.qbick.com.ar',
+      description: 'Venta de EPS, Telgopor Molido y Ligante para construcción en Buenos Aires, Argentina.',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Buenos Aires',
+        addressCountry: 'AR',
+      },
+      openingHoursSpecification: [
+        { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '08:00', closes: '18:00' },
+        { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '08:00', closes: '13:00' },
+      ],
+    },
+  ],
+}
 
 const features = [
   {
@@ -66,6 +96,13 @@ const stats = [
 export default function Home() {
   return (
     <div className="home">
+      <SEOHead
+        title="QBICK | EPS y Telgopor para Construcción - Buenos Aires, Argentina"
+        description="Venta de EPS (Telgopor), Telgopor Molido Blanco y Gris/Negro, y Ligante para construcción. Más de 10 años de experiencia. Contrapisos alivianados, carpetas térmicas y rellenos livianos. Buenos Aires, Argentina."
+        keywords="EPS construcción, telgopor, poliestireno expandido, telgopor molido, contrapisos alivianados, carpetas térmicas, rellenos livianos, ligante telgopor, QBICK, Buenos Aires"
+        path="/"
+        schema={homeSchema}
+      />
       {/* ── HERO ── */}
       <section className="hero">
         <div className="hero__bg-overlay" />
